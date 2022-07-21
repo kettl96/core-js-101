@@ -1,4 +1,3 @@
-/* eslint-disable */
 /* *******************************************************************************************
  *                                                                                           *
  * Please read the following tutorial before implementing tasks:                              *
@@ -208,12 +207,14 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(width, height) {
-  let res = '';
-  if (width === 6 || height === 4) res = '┌────┐\n' + '│    │\n' + '│    │\n' + '└────┘\n';
-  if (width === 2) res = '┌┐\n' + '└┘\n';
-  if (width === 12) res = '┌──────────┐\n' + '│          │\n' + '└──────────┘\n';
-  return res;
+function getRectangleString(/* width, height */) {
+  throw new Error('Not implemented');
+
+  // let res = '';
+  // if (width === 6 || height === 4) res = '┌────┐\n' + '│    │\n' + '│    │\n' + '└────┘\n';
+  // if (width === 2) res = '┌┐\n' + '└┘\n';
+  // if (width === 12) res = '┌──────────┐\n' + '│          │\n' + '└──────────┘\n';
+  // return res;
 }
 
 
@@ -240,13 +241,9 @@ function encodeToRot13(str) {
   for (let i = 0; i < str.length; i += 1) {
     if (str[i] === ' ') {
       res += ' ';
-      continue;
-    }
-    if (input.indexOf(str[i]) === -1) {
+    } else if (input.indexOf(str[i]) === -1) {
       res += str[i];
-      continue;
-    }
-    res += output[input.indexOf(str[i])];
+    } else res += output[input.indexOf(str[i])];
   }
   return res;
 }
@@ -264,13 +261,13 @@ function encodeToRot13(str) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
- function isString(value) {
-  if (typeof value === 'object'&& value !== null) {
+function isString(value) {
+  if (typeof value === 'object' && value !== null) {
     if (typeof value.toString() === 'string' && value.length !== 0) {
-      return true
+      return true;
     }
   }
-  return typeof value === 'string' ? true : false;
+  return typeof value === 'string';
 }
 
 
@@ -304,8 +301,8 @@ function getCardId(value) {
     'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦',
     'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥',
     'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠',
-  ]
-  return card.indexOf(value)
+  ];
+  return card.indexOf(value);
 }
 
 
